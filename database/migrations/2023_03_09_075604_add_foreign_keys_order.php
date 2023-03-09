@@ -1,0 +1,46 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::table('order', function (Blueprint $table) {
+            $table->foreign('service_id', 'fk_order_to_service')
+            ->references('id')->on('service')
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
+
+            $table->foreign('freelancer_id', 'fk_freelancer_to_users')
+            ->references('id')->on('users')
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
+
+            $table->foreign('buyer_id', 'fk_buyer_to_users')
+            ->references('id')->on('users')
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
+
+            $table->foreign('order_status_id', 'fk_order_to_order_status')
+            ->references('id')->on('order_status')
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::table('order', function (Blueprint $table) {
+            $table->dropForeign(['fk_order_to_service', 'fk_freelancer_to_users', 'fk_buyer_to_users', 'fk_order_to_order_status']);
+        });
+    }
+};
