@@ -40,7 +40,10 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('order', function (Blueprint $table) {
-            $table->dropForeign(['fk_order_to_service', 'fk_freelancer_to_users', 'fk_buyer_to_users', 'fk_order_to_order_status']);
+            $table->dropForeign('fk_order_to_service');
+            $table->dropForeign('fk_freelancer_to_users');
+            $table->dropForeign('fk_buyer_to_users');
+            $table->dropForeign('fk_order_to_order_status');
         });
     }
 };
