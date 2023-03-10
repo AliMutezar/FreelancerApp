@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class ExperienceUser extends Model
@@ -23,4 +24,10 @@ class ExperienceUser extends Model
         'detail_user_id',
         'experience'
     ];
+
+    // Inverse Relationship
+    public function detail_user(): BelongsTo
+    {
+        return $this->belongsTo(DetailUser::class, 'detail_user_id');
+    }
 }
