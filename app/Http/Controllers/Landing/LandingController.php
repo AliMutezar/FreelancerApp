@@ -3,16 +3,23 @@
 namespace App\Http\Controllers\Landing;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
 class LandingController extends Controller
 {
+
+    // public function __invoke()
+    // {
+        
+    // }
+
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(): View
     {
-        //
+        return view('pages.landing.index');
     }
 
     /**
@@ -64,9 +71,9 @@ class LandingController extends Controller
     }
 
     
-    public function explore()
+    public function explore(): View
     {
-
+        return view('pages.landing.explore');
     }
 
     public function detail($id)
