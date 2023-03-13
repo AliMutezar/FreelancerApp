@@ -12,6 +12,11 @@ class Authenticate extends Middleware
      */
     protected function redirectTo(Request $request): ?string
     {
-        return $request->expectsJson() ? null : route('login');
+
+        // Ternary operator -- $variable = (kondisi) ? nilai jika benar : nilai jika salah;
+        // return $request->expectsJson() ? null : route('login');
+
+        // Jika berhasil login, ngga langsung ke dashboard tapi diarahkan ke route index, kalo gagal login karena kita pake modal pop up, jadi redirectnya ke index juga
+        return $request->expectsJson() ? route('index') : route('index');
     }
 }
