@@ -21,7 +21,7 @@
                 <div class="relative p-6 flex-auto mx-10">
                     <div class="mb-4">
                         <label class="block text-grey-darker text-sm mb-2" for="name">Full Name</label>
-                        <input class="appearance-none border border-gray-300 rounded-lg w-full py-3 px-4 placeholder-serv-text text-xs" id="name" type="text" placeholder="Your name" required>
+                        <input class="appearance-none border border-gray-300 rounded-lg w-full py-3 px-4 placeholder-serv-text text-xs" name="name" id="name" type="text" placeholder="Your name" required>
 
                         @if ($errors->has('name'))
                             <p class="text-red-500 mb-3 text-sm">

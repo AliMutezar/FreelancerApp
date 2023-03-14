@@ -1,18 +1,17 @@
 <?php
 
-namespace App\Http\Controllers\Dashboard;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class RequestController extends Controller
+class ServiceController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        return view('pages.dashboard.service.index');
     }
 
     /**
@@ -61,10 +60,5 @@ class RequestController extends Controller
     public function destroy(string $id)
     {
         //
-    }
-
-    public function approve($id)
-    {
-        
     }
 }

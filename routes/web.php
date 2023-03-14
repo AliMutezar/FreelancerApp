@@ -6,11 +6,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Landing\LandingController;
 
 // Member (dashboard)
-use App\Http\Controllers\Dashboard\MemberController;
-use App\Http\Controllers\Dashboard\ProfileController;
-use App\Http\Controllers\Dashboard\MyOrderController;
-use App\Http\Controllers\Dashboard\RequestController;
-use App\Http\Controllers\Dashboard\ServiceController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\MyOrderController;
+use App\Http\Controllers\RequestController;
+use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\MemberController;
 use Symfony\Component\Routing\RequestContext;
 
 /*
@@ -45,8 +45,8 @@ Route::get('booking/{id}', [LandingController::class, 'booking'])->name('booking
 Route::get('detail/{id}', [LandingController::class, 'detail'])->name('detail.landing');
 Route::get('explore', [LandingController::class, 'explore'])->name('explore.landing');
 
-Route::name('member.')->middleware(['auth:sanctum', 'verified'])->group(function(){
 
+Route::prefix('member')->middleware(['auth:sanctum', 'verified'])->group(function() {
     Route::resource('dashboard', MemberController::class);
     Route::resource('service', ServiceController::class);
 
@@ -59,5 +59,4 @@ Route::name('member.')->middleware(['auth:sanctum', 'verified'])->group(function
 
     Route::get('delete_photo', [ProfileController::class, 'delete'])->name('delete.photo.profile');
     Route::resource('profile', ProfileController::class);
-
 });

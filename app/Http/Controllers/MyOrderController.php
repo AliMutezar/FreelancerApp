@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Dashboard;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class MemberController extends Controller
+class MyOrderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -61,5 +60,17 @@ class MemberController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+    
+
+    public function accepted(string $id)
+    {
+
+    }
+
+
+    public function rejected(string $id)
+    {
+
     }
 }

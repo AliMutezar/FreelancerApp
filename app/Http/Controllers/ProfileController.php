@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Dashboard;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class MyOrderController extends Controller
+class ProfileController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -63,12 +62,8 @@ class MyOrderController extends Controller
         //
     }
 
-    public function accepted($id)
-    {
-        
-    }
 
-    public function rejected($id)
+    public function delete_photo()
     {
         
     }

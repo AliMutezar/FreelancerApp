@@ -15,6 +15,7 @@
             </div>
 
             <form action="{{ route('login') }}" method="POST">
+                @csrf
 
                 <!--body-->
                 <div class="relative p-6 flex-auto mx-10">
