@@ -75,7 +75,7 @@
                                             Details
                                         </a>
 
-                                        <a href="#" class="px-4 py-2 mt-2 text-center text-white rounded-xl bg-serv-email">
+                                        <a href="{{ route('order.edit', 1) }}" class="px-4 py-2 mt-2 text-center text-white rounded-xl bg-serv-email">
                                             Submit
                                         </a>
                                     </td>
