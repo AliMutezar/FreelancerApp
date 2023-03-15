@@ -30,24 +30,24 @@
                 <!-- Right Column -->
                 <div class="w-full lg:w-1/2 text-center lg:justify-start justify-center flex pr-0">
                     <img class="bottom-0 lg:block lg:right-24 md:right-16 sm:right-8 right-8 object-cover"
-                        src="{{ url('/assets/hero-image.png') }}" alt="" />
+                        src="{{ asset('/assets/hero-image.png') }}" alt="" />
                 </div>
             </div>
             <div class="lg:mb-20 mb-10 flex sm:space-x-4 space-x-1">
                 <div class="flex-1 flex items-center justify-center py-3 px-6">
-                    <img src="{{ url('images/brand-logo/netflix.svg') }}" alt="">
+                    <img src="{{ asset('assets/images/brand-logo/netflix.svg') }}" alt="">
                 </div>
                 <div class="flex-1 flex items-center justify-center py-3 px-6">
-                    <img src="{{ url('images/brand-logo/amazon.svg') }}" alt="">
+                    <img src="{{ asset('assets/images/brand-logo/amazon.svg') }}" alt="">
                 </div>
                 <div class="flex-1 flex items-center justify-center py-3 px-6">
-                    <img src="{{ url('images/brand-logo/uber.svg') }}" alt="">
+                    <img src="{{ asset('assets/images/brand-logo/uber.svg') }}" alt="">
                 </div>
                 <div class="flex-1 flex items-center justify-center py-3 px-6">
-                    <img src="{{ url('images/brand-logo/grab.svg') }}" alt="">
+                    <img src="{{ asset('assets/images/brand-logo/grab.svg') }}" alt="">
                 </div>
                 <div class="flex-1 flex items-center justify-center py-3 px-6">
-                    <img src="{{ url('images/brand-logo/google.svg') }}" alt="">
+                    <img src="{{ asset('assets/images/brand-logo/google.svg') }}" alt="">
                 </div>
             </div>
         </div>
@@ -75,7 +75,7 @@
             <!-- Left Column -->
             <div class="w-full lg:w-1/2 text-center justify-center flex lg:mb-0 mb-12">
                 <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" data-lity>
-                    <img id="hero" src="{{ url('images/video-placeholder.png') }}" alt="" class="p-5" />
+                    <img id="hero" src="{{ asset('assets/images/video-placeholder.png') }}" alt="" class="p-5" />
                 </a>
             </div>
             <!-- Right Column -->
