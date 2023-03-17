@@ -30,7 +30,7 @@ class RequestController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(): View
     {
         $orders = Order::where('buyer_id', Auth::user()->id)
                         ->orderBy('created_at', 'desc')
@@ -58,7 +58,7 @@ class RequestController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $id): View
     {
         $order = Order::where('id', $id)->first();
         return view('pages.dashboard.request.detail', compact('order'));

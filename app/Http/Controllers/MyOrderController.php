@@ -22,7 +22,6 @@ use App\Models\ThumbnailService;
 use App\Models\Tagline;
 
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 
 class MyOrderController extends Controller
@@ -36,7 +35,7 @@ class MyOrderController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(): View
     {
         $orders = Order::where('freelancer_id', Auth::user()->id)
                         ->orderBy('created_at', 'desc')
@@ -64,7 +63,7 @@ class MyOrderController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Order $order)
+    public function show(Order $order): View
     {
 
         $service = Service::where('id', $order['service_id'])->first();
