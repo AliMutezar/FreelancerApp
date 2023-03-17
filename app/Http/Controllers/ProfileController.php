@@ -135,8 +135,8 @@ class ProfileController extends Controller
 
         }
 
-        toast()->success('Update has been success');
-        return back(); //balik lagi ke page profile
+        toast()->success('Delete has been success');
+        return back();
     }
 
     /**
