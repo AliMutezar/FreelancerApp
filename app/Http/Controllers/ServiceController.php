@@ -118,7 +118,7 @@ class ServiceController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Service $service)
+    public function edit(Service $service): View
     {
         $advantage_service = AdvantageService::where('service_id', $service->id)->get();
         $tagline = Tagline::where('service_id', $service->id)->get();
@@ -131,7 +131,7 @@ class ServiceController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateServiceRequest $request, Service $service)
+    public function update(UpdateServiceRequest $request, Service $service): RedirectResponse
     {
         $data = $request->all();
 
