@@ -32,7 +32,7 @@ class RequestController extends Controller
      */
     public function index()
     {
-        $oders = Order::where('buyer_id', Auth::user()->id)
+        $orders = Order::where('buyer_id', Auth::user()->id)
                         ->orderBy('created_at', 'desc')
                         ->get();
 
