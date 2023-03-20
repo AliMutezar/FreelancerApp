@@ -72,33 +72,24 @@ class ProfileController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateProfileRequest $request_profile, UpdateDetailUserRequest $request_detail_user)
+    public function update(UpdateProfileRequest $request_profile, UpdateDetailUserRequest $request_detail_user, )
     {
         $data_profile       = $request_profile->all();
         $data_detail_user   = $request_detail_user->all();
 
-        // get photo
-        $get_photo = DetailUser::where('user_id', Auth::user()->id)->first();
+        $current_photo = DetailUser::where('user_id', Auth::user()->id)->first()->photo;
+        // dd($current_photo);
 
-        // delete old photo
-        if(isset($data_detail_user['photo']))
-        {
-            // check photonya ada atau tidak
-            $data = 'storage/' . $get_photo['photo'];
-            if (Storage::exists($data)) {
-                Storage::delete_photo($data);
-            } else {
-                Storage::delete('storage/app/public/' . $get_photo['photo']);
+        // check request photo
+        if ($request_detail_user->photo) {
+            // dd($request_detail_user->photo);
+
+            // delete old image
+            if (Storage::exists($current_photo)) {
+                Storage::delete($current_photo);
             }
-            
-        }
 
-        // Store file ke storage
-        if(isset($data_detail_user['photo']))
-        {
-            $data_detail_user['photo']  =   $request_detail_user->file('photo')->store(
-                'assets/photo', 'public'
-            );
+            $data_detail_user['photo'] = $request_detail_user->file('photo')->store('public/photo-profile');
         }
 
         // Save to User Table
@@ -134,7 +125,7 @@ class ProfileController extends Controller
 
         }
 
-        toast()->success('Delete has been success', 'success');
+        toast()->success('Data has been updated', 'success');
 
         // Alert::success('Success', 'Data has been updated');
         return back();
@@ -154,6 +145,7 @@ class ProfileController extends Controller
         // get user
         $get_user_photo = DetailUser::where('user_id', Auth::user()->id)->first();
         $path_photo = $get_user_photo['photo'];
+        // dd($path_photo);
 
         // second update to null
         $data = DetailUser::find($get_user_photo['id']);
