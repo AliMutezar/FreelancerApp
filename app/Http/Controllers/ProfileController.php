@@ -9,8 +9,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 use Symfony\Component\HttpFoundation\Response;
 
-use File;
-use Alert;
+use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\DetailUser;
@@ -86,10 +85,10 @@ class ProfileController extends Controller
         {
             // check photonya ada atau tidak
             $data = 'storage/' . $get_photo['photo'];
-            if (File::exists($data)) {
-                File::delete($data);
+            if (Storage::exists($data)) {
+                Storage::delete_photo($data);
             } else {
-                File::delete('storage/app/public/' . $get_photo['photo']);
+                Storage::delete('storage/app/public/' . $get_photo['photo']);
             }
             
         }
@@ -135,7 +134,9 @@ class ProfileController extends Controller
 
         }
 
-        toast()->success('Delete has been success');
+        toast()->success('Delete has been success', 'success');
+
+        // Alert::success('Success', 'Data has been updated');
         return back();
     }
 
@@ -148,7 +149,7 @@ class ProfileController extends Controller
     }
 
 
-    public function delete_photo()
+    public function delete()
     {
         // get user
         $get_user_photo = DetailUser::where('user_id', Auth::user()->id)->first();
@@ -161,10 +162,10 @@ class ProfileController extends Controller
 
         // delete file photo
         $data = 'storage/' . $path_photo;
-        if (File::exist($data)) {
-            File::delete($data);
+        if (Storage::exists($data)) {
+            Storage::delete($data);
         } else {
-            File::delete('storage/app/public/' . $path_photo);
+            Storage::delete('storage/app/public/' . $path_photo);
         }
 
         toast()->success('Delete has been success');

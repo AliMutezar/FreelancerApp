@@ -102,7 +102,7 @@ class LandingController extends Controller
         return view('pages.landing.detail', compact('service', 'thumbnail', 'advantage_user', 'advantage_service', 'tagline'));
     }
     
-    public function booking($id)
+    public function booking($id): RedirectResponse
     {
         $service    = Service::where('id', $id)->first();
         $user_buyer = Auth::user()->id;
@@ -127,7 +127,7 @@ class LandingController extends Controller
         return redirect()->route('detail.booking.landing', $order->id);
     }
 
-    public function detail_booking($id)
+    public function detail_booking($id): View
     {
         $order = Order::where('id', $id)->first();
         return view('pages.landing.booking', compact('order'));
