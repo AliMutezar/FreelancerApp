@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('taqline', function (Blueprint $table) {
             $table->id();
             $table->foreignId('service_id')->nullable()->index('fk_taqline_to_service');
-            $table->string('taqline');
+            $table->string('taqline')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
