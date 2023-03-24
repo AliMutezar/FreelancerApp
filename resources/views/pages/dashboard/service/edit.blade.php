@@ -90,13 +90,13 @@
 
                                             <div id="newServicesRow"></div>
                                             
-                                            <button type="button" class="inline-flex justify-center px-3 py-2 mt-3 text-xs font-medium text-gray-700 bg-gray-100 border border-transparent rounded-lg hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" id="addServicesRow">
-                                                Tambahkan Keunggulan Service +
-                                            </button>
-
-                                            <button type="button" class="inline-flex justify-center px-3 py-2 mt-3 text-xs font-medium text-red-700 bg-red-100 border border-transparent rounded-lg hover:bg-red-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500" id="removeServicesRow">
-                                                Hapus Keunggulan Service -
-                                            </button>
+                                                <button type="button" class="px-3 py-2 mt-3 mr-5 text-xs font-medium text-gray-700 bg-gray-100 border border-transparent rounded-lg hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" id="addServicesRow">
+                                                    Tambah +
+                                                </button>
+        
+                                                <button type="button" class="px-3 py-2 mt-3 text-xs font-medium text-red-700 bg-red-100 border border-transparent rounded-lg hover:bg-red-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500" id="removeServicesRow">
+                                                    Hapus -
+                                                </button>
                                         </div>
 
 
@@ -267,8 +267,9 @@
 
         // remove row
         $(document).on('click', '#removeServicesRow', function() {
-            $(this).('#inputFormServicesRow').remove();
+            $('#inputFormServicesRow').remove();
         });
+
     </script>
 
     <script type="text/javascript">
