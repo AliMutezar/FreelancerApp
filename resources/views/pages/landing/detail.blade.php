@@ -41,7 +41,7 @@
                             @forelse ($thumbnail as $item)
                                 <img src="{{ url(Storage::url($item->thumbnail)) }}" alt="Thumbnail Service" :class="{ 'border-4 border-serv-button': active === {{ $item->id }} }" @click="changeThumbnail(' {{ url(Storage::url($item->thumbnail)) }} ', {{ $item->id }} )" class="inline-block mr-2 rounded-lg cursor-pointer h-20 w-36 object-cover">
                             @empty
-                                
+                                {{-- empty --}}
                             @endforelse
                         </div>
 

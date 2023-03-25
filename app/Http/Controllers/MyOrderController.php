@@ -73,7 +73,7 @@ class MyOrderController extends Controller
         $advantage_user     = AdvantageUser::where('service_id', $order['service_id'])->get();
         $tagline           = Tagline::where('service_id', $order['service_id'])->get();
 
-        return view('pages.dashboard.order.detail', compact('service', 'thumbnail', 'advantage_service', 'advantage_user', 'tagline'));
+        return view('pages.dashboard.order.detail', compact('order','service', 'thumbnail', 'advantage_service', 'advantage_user', 'tagline'));
     }
 
     /**
@@ -91,11 +91,10 @@ class MyOrderController extends Controller
     public function update(UpdateMyOrderRequest $request, Order $order): RedirectResponse
     {
         $data = $request->all();
+        // dd($data);
 
         if (isset($data['file'])) {
-            $data['file'] = $request->file('file')->store(
-                'assets/order/attachment', 'public'
-            );
+            $data['file'] = $request->file('file')->store('public/attachment');
         }
 
         $oder = Order::find($order->id);
@@ -104,7 +103,7 @@ class MyOrderController extends Controller
         $order->save();
         
         toast()->success('Submit order has been success');
-        return redirect()->route('member.index');
+        return redirect()->route('order.index');
     }
 
     /**
