@@ -71,7 +71,7 @@
                 our Freelancer through WhatsApp
             </p>
 
-            <a href="http://wa.me/628123456789" class="bg-serv-button text-white text-md font-medium py-4 w-80 my-2 rounded-2xl text-center inline-block">
+            <a href="http://wa.me/6287883864673" class="bg-serv-button text-white text-md font-medium py-4 w-80 my-2 rounded-2xl text-center inline-block">
                 Continue to Chat
             </a>
 

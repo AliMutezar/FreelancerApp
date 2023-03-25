@@ -35,6 +35,7 @@ class MemberController extends Controller
     {
         $order = Order::where('freelancer_id', Auth::user()->id)->get();
         
+        
         $progress   = Order::where('freelancer_id', Auth::user()->id)
                             ->where('order_status_id', 2)->count();
 

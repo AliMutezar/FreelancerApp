@@ -99,6 +99,8 @@ class LandingController extends Controller
         $advantage_service  = AdvantageService::where('service_id', $id)->get();
         $tagline            = Tagline::where('service_id', $id)->get();
 
+        // dd($tagline);
+
         return view('pages.landing.detail', compact('service', 'thumbnail', 'advantage_user', 'advantage_service', 'tagline'));
     }
     

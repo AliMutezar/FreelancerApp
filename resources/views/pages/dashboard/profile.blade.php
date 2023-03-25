@@ -115,14 +115,32 @@
 
 
 
-                                            @foreach ($experience_user as $item)
+                                            @forelse ($experience_user as $key => $item)
                                                 <input placeholder="More than 9 years of experience" type="text" name="{{ 'experience['.$item->id.']' }}" id="{{ 'experience['.$item->id.']' }}" autocomplete="{{ 'experience['.$item->id.']' }}" class="block w-full py-3 mt-1 border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm" value="{{ $item->experience }}">
 
                                                 @if ($errors->has('experience['.$item->id.']'))
                                                     <p class="text-red-500 mb-3 text-sm">{{ $errors->first('experience') }}</p>
                                                 @endif
+                                            @empty
+                                                <input placeholder="More than 9 years of experience" type="text" name="experience[]" id="experience" autocomplete="experience" class="block w-full py-3 mt-1 border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm">
 
-                                            @endforeach
+                                                @if ($errors->has('experience'))
+                                                    <p class="text-red-500 mb-3 text-sm">{{ $errors->first('experience') }}</p>
+                                                @endif
+
+                                                <input placeholder="More than 9 years of experience" type="text" name="experience[]" id="experience" autocomplete="experience" class="block w-full py-3 mt-1 border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm">
+
+                                                @if ($errors->has('experience'))
+                                                    <p class="text-red-500 mb-3 text-sm">{{ $errors->first('experience') }}</p>
+                                                @endif
+
+                                                <input placeholder="More than 9 years of experience" type="text" name="experience[]" id="experience" autocomplete="experience" class="block w-full py-3 mt-1 border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm">
+
+                                                @if ($errors->has('experience'))
+                                                    <p class="text-red-500 mb-3 text-sm">{{ $errors->first('experience') }}</p>
+                                                @endif
+                                            @endforelse
+
 
                                         </div>
                                     </div>
